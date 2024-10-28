@@ -72,7 +72,7 @@ const CapsulesTable = () => {
 					icon={<Trash className='text-sm' weight='fill' />}
 					label='Delete'
 					className='mr-2 font-normal text-xs bg-red-100 px-2 py-1 hover:bg-red-600 hover:text-red-50 flex items-center gap-1 text-red-600'
-					onClick={() => showTemplate(data.capsule_serial)}
+					onClick={() => confirmDialogTemplate(data.capsule_serial)}
 				/>
 			</div>
 		)
@@ -82,13 +82,14 @@ const CapsulesTable = () => {
 		return capsule?.original_launch ? formatDate(capsule?.original_launch as string) : '-'
 	}
 
-	const showTemplate = (id: string) => {
+	const confirmDialogTemplate = (id: string) => {
 		confirmDialog({
 			group: 'templating',
 			rejectClassName:
 				'text-sm w-full bg-slate-100 text-slate-600 hover:bg-slate-300 hover:text-slate-600 flex items-center gap-1 py-3 px-4',
 			rejectLabel: 'Cancel',
 			acceptLabel: 'Confirm',
+			// @ts-expect-error error
 			footerClassName: 'flex items-center gap-3',
 			acceptClassName:
 				'text-sm w-full bg-red-600 text-red-100 hover:bg-red-800 hover:text-red-50 flex items-center gap-1 py-3 px-4',
