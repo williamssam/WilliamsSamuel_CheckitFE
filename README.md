@@ -1,4 +1,4 @@
-# CheckIt FE Assignment
+# CheckIt FE Assessment
 
 This is a responsive Next.js app to display and manage SpaceX data (capsules) with functionalities to add and edit entries locally.
 
