@@ -25,7 +25,9 @@ export const FilterTable = () => {
 	})
 
 	return (
-		<form onSubmit={formik.handleSubmit} className='grid grid-cols-4 gap-4'>
+		<form
+			onSubmit={formik.handleSubmit}
+			className='grid grid-cols-4 gap-4 py-4 px-6 border border-slate-300 rounded-md'>
 			<Dropdown
 				checkmark={true}
 				highlightOnSelect={false}
@@ -35,7 +37,7 @@ export const FilterTable = () => {
 				options={cities}
 				optionLabel='name'
 				placeholder='Select a status'
-				className='w-full rounded-md border border-slate-300 bg-slate-50'
+				className='w-full rounded-md border border-slate-300 bg-white'
 			/>
 
 			<Calendar
@@ -46,7 +48,7 @@ export const FilterTable = () => {
 				id='capsule_id'
 				placeholder='DD/MM/YYYY'
 				dateFormat='dd/mm/yy'
-				className='w-full rounded-md py-3 px-4 border border-slate-300 bg-slate-50'
+				className='w-full rounded-md py-3 px-4 border border-slate-300 bg-white'
 			/>
 
 			<InputText
@@ -55,7 +57,7 @@ export const FilterTable = () => {
 				onBlur={formik.handleBlur}
 				value={formik.values.capsule_id}
 				placeholder='Capsule ID'
-				className='w-full rounded-md py-3 px-4 border border-slate-300 bg-slate-50'
+				className='w-full rounded-md py-3 px-4 border border-slate-300 bg-white'
 			/>
 
 			<Button

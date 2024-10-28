@@ -4,7 +4,7 @@ import CapsulesTable from './CapsulesTable'
 
 export const Dashboard = () => {
 	return (
-		<section className='bg-zinc-200 rounded-l-3xl overflow-hidden p-10 flex flex-col gap-10'>
+		<section className='bg-zinc-200 lg:rounded-l-3xl p-4 lg:p-10 flex flex-col gap-10'>
 			<div className='space-y-5'>
 				<header className='pb-4 py-2 justify-between flex items-center gap-10'>
 					<h2 className='text-3xl font-extrabold '>Capsules</h2>
