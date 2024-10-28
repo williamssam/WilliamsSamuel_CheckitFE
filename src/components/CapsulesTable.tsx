@@ -141,6 +141,7 @@ const CapsulesTable = () => {
 					header={<SearchInput filters={filters} setFilters={setFilters} />}
 					globalFilterFields={['details', 'capsule_id', 'capsule_serial', 'status']}
 					paginator
+					paginatorClassName='p-6'
 					rows={5}
 					scrollable
 					filterDisplay='menu'
@@ -149,7 +150,7 @@ const CapsulesTable = () => {
 						dispatch(setCapsule(data.data as Capsule))
 						setVisible(true)
 					}}
-					className='text-sm'
+					className='text-sm w-full whitespace-nowrap'
 					// @ts-expect-error error
 					rowClassName='hover:bg-slate-100 cursor-pointer'>
 					<Column field='capsule_id' header='Capsule ID' className='capitalize'></Column>
