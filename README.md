@@ -27,3 +27,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - Displays SpaceX capsule details on a data table and view more information about each capsule
 - Filter table by launch date, status and type
 - Search table
+
+## Video walkthrough
+[2024-10-28T12-53-47.webm](https://github.com/user-attachments/assets/73c5284a-ed6c-42cc-9ff1-cf3bd371e8d1)
+
