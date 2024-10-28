@@ -1,6 +1,6 @@
 # CheckIt FE Assignment
 
-This is a responsive Nextjs app to display and manage SpaceX data (capsules) with functionalities to add and edit entries locally.
+This is a responsive Next.js app to display and manage SpaceX data (capsules) with functionalities to add and edit entries locally.
 
 ## Get started
 - Install dependencies
@@ -17,8 +17,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-## Tech Staack
-- Nextjs
+## Tech Stack
+- Next.js
 - Formik for form handling
 - Yup for validation
 - Redux/Redux toolkit

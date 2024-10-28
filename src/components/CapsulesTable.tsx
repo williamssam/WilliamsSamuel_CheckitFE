@@ -3,8 +3,9 @@ import { removeCapsule, setCapsule, useCapsules } from '@/lib/capsule-slice'
 import { Capsule } from '@/types'
 import { formatDate } from '@/utils'
 import { PencilSimpleLine, Trash, Warning } from '@phosphor-icons/react'
-import { FilterMatchMode } from 'primereact/api'
+import { FilterMatchMode, FilterService } from 'primereact/api'
 import { Button } from 'primereact/button'
+import { Calendar } from 'primereact/calendar'
 import { Column, ColumnFilterElementTemplateOptions } from 'primereact/column'
 import { confirmDialog, ConfirmDialog } from 'primereact/confirmdialog'
 import { DataTable } from 'primereact/datatable'
@@ -33,6 +34,10 @@ const statusBodyTemplate = (capsule: Capsule) => {
 	return <Tag value={capsule.status} severity={getSeverity(capsule)} className='uppercase'></Tag>
 }
 
+FilterService.register('custom_original_launch', (value, filters) => {
+	return new Date(value).toDateString() === new Date(filters).toDateString()
+})
+
 const CapsulesTable = () => {
 	const capsules = useCapsules()
 	const dispatch = useDispatch()
@@ -47,8 +52,8 @@ const CapsulesTable = () => {
 		global: { value: null, matchMode: FilterMatchMode.CONTAINS },
 		status: { value: null, matchMode: FilterMatchMode.EQUALS },
 		type: { value: null, matchMode: FilterMatchMode.EQUALS },
+		original_launch: { value: null, matchMode: FilterMatchMode.CUSTOM },
 	})
-	// 	const [globalFilterValue, setGlobalFilterValue] = React.useState('');
 
 	const actionBodyTemplate = (data: Capsule) => {
 		return (
@@ -80,7 +85,11 @@ const CapsulesTable = () => {
 	const showTemplate = (id: string) => {
 		confirmDialog({
 			group: 'templating',
-			rejectClassName: 'hidden',
+			rejectClassName:
+				'text-sm w-full bg-slate-100 text-slate-600 hover:bg-slate-300 hover:text-slate-600 flex items-center gap-1 py-3 px-4',
+			rejectLabel: 'Cancel',
+			acceptLabel: 'Confirm',
+			footerClassName: 'flex items-center gap-3',
 			acceptClassName:
 				'text-sm w-full bg-red-600 text-red-100 hover:bg-red-800 hover:text-red-50 flex items-center gap-1 py-3 px-4',
 			message: (
@@ -130,6 +139,18 @@ const CapsulesTable = () => {
 		)
 	}
 
+	const launchDateRowFilterTemplate = (options: ColumnFilterElementTemplateOptions) => {
+		return (
+			<Calendar
+				onChange={e => options.filterApplyCallback(e?.value)}
+				value={options.value}
+				placeholder='DD/MM/YYYY'
+				dateFormat='dd/mm/yy'
+				className='w-full rounded-md z-50 py-3 px-4 border border-slate-300 bg-white'
+			/>
+		)
+	}
+
 	return (
 		<>
 			<div className='flex flex-col gap-6'>
@@ -154,7 +175,13 @@ const CapsulesTable = () => {
 					// @ts-expect-error error
 					rowClassName='hover:bg-slate-100 cursor-pointer'>
 					<Column field='capsule_id' header='Capsule ID' className='capitalize'></Column>
-					<Column header='Original launch date' body={launchDateBodyTemplate}></Column>
+					<Column
+						header='Original launch date'
+						filter
+						filterField='original_launch'
+						showFilterMatchModes={false}
+						filterElement={launchDateRowFilterTemplate}
+						body={launchDateBodyTemplate}></Column>
 					<Column
 						header='Status'
 						filter

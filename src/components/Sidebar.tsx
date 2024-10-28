@@ -78,7 +78,7 @@ export const Sidebar = () => {
 					visible={visible}
 					position='left'
 					onHide={() => setVisible(false)}
-					className='h-screen'>
+					className='h-screen w-64'>
 					<ul className='flex flex-col gap-2'>
 						{menus.map(menu => (
 							<li key={menu.id}>

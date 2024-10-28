@@ -12,5 +12,5 @@
 }
 
 .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
-	@apply !bg-slate-200 !text-slate-600;
+	@apply !bg-slate-200 !text-slate-600 !font-bold;
 }

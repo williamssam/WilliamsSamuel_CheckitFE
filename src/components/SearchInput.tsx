@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ /* eslint-disable @typescript-eslint/no-explicit-any */
 import { MagnifyingGlass } from '@phosphor-icons/react'
 import { useFormik } from 'formik'
 import { IconField } from 'primereact/iconfield'
@@ -45,7 +45,7 @@ export const SearchInput = ({ filters, setFilters }: SearchInputProps) => {
 					value={formik.values.search}
 					aria-labelledby='search for a capsule'
 					placeholder='Search for a capsule'
-					className='md:w-96 rounded-md py-3 px-4 pl-9 border border-slate-300 bg-white'
+					className='md:w-96 rounded-md py-3 px-4 text-sm font-normal pl-9 border border-slate-300 bg-white'
 				/>
 			</IconField>
 		</div>

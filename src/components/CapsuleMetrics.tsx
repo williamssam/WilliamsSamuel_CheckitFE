@@ -42,7 +42,7 @@ export const CapsuleMetrics = () => {
 				<p className='font-extrabold text-4xl text-amber-600'>
 					{metric.total_retired_capsules.toLocaleString()}
 				</p>
-				<p className='text-slate-600 text-sm pt-1'>Total retired capssules</p>
+				<p className='text-slate-600 text-sm pt-1'>Total retired capsules</p>
 			</li>
 		</ul>
 	)
